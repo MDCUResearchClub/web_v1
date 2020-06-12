@@ -1,4 +1,4 @@
-FROM php:fpm AS php-fpm
+FROM php:apache AS php-apache
 
 # https://github.com/docker-library/drupal/blob/ceed8c29e38959d66e28554ec9aae1cc65a66a9d/8.9/fpm/Dockerfile
 # install the PHP extensions we need
@@ -69,7 +69,7 @@ RUN composer install \
     --no-dev \
     --prefer-dist
 
-FROM php-fpm
+FROM php-apache
 
 # Copy precompiled codebase into the container.
 COPY --from=vendor /app/ /var/www/html/
