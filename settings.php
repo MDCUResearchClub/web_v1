@@ -9,7 +9,7 @@
 
 $settings['config_sync_directory'] = '../config/sync';
 
-$settings['hash_salt'] = file_get_contents('/run/secrets/drupal_hash_salt');
+$settings['hash_salt'] = rtrim(file_get_contents('/run/secrets/drupal_hash_salt'));
 
 $settings['update_free_access'] = FALSE;
 
@@ -39,7 +39,7 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 $databases['default']['default'] = array (
   'database' => 'postgres',
   'username' => 'postgres',
-  'password' => file_get_contents('/run/secrets/postgres_password'),
+  'password' => rtrim(file_get_contents('/run/secrets/postgres_password')),
   'prefix' => '',
   'host' => 'postgres',
   'port' => '5432',
