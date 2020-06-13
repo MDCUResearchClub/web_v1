@@ -23,7 +23,7 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
 $settings['trusted_host_patterns'] = [
   '^mdcuresearchclub\.thew\.pro$',
   '^.+\.mdcuresearchclub\.thew\.pro$',
-]
+];
 
 $settings['file_scan_ignore_directories'] = [
   'node_modules',
