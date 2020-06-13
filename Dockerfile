@@ -75,7 +75,8 @@ FROM php-apache
 COPY --from=vendor /app/ /var/www/html/
 
 # Make sure file ownership is correct on the document root.
-RUN mkdir /var/www/html/files && chown -R www-data:www-data /var/www/html/web /var/www/html/files
+RUN mkdir /var/www/html/files /var/www/html/web/sites/default/files && \
+    chown -R www-data:www-data /var/www/html/web /var/www/html/files
 
 VOLUME /var/www/html/files /var/www/html/web/sites/default/files
 
