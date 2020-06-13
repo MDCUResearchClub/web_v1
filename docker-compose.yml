@@ -4,12 +4,12 @@ services:
   drupal:
     image: docker.pkg.github.com/mdcuresearchclub/web/mdcuresearchclub-web
     restart: on-failure
-    environment:
-      - POSTGRES_PASSWORD_FILE=/run/secrets/postgres_password
     secrets:
       - postgres_password
+      - drupal_hash_salt
     volumes:
       - drupal_files:/var/www/html/web/sites/default/files
+      - drupal_private_files:/var/www/html/files
   postgres:
     image: postgres
     restart: on-failure
@@ -25,9 +25,12 @@ services:
 
 volumes:
   drupal_files:
+  drupal_private_files:
   postgres_data:
 
 secrets:
+  drupal_hash_salt:
+    external: true
   postgres_password:
     external: true
 
