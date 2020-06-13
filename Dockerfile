@@ -77,7 +77,7 @@ COPY --from=vendor /app/ /var/www/html/
 VOLUME /var/www/html/files /var/www/html/web/sites/default/files
 
 # Make sure file ownership is correct on the document root.
-RUN chown -R www-data:www-data /var/www/html/web /var/www/html/files
+RUN mkdir /var/www/html/files && chown -R www-data:www-data /var/www/html/web /var/www/html/files
 
 # Add Drush Launcher.
 RUN curl -OL https://github.com/drush-ops/drush-launcher/releases/download/0.6.0/drush.phar \
