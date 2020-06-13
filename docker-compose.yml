@@ -3,7 +3,9 @@ version: "3.7"
 services:
   drupal:
     image: docker.pkg.github.com/mdcuresearchclub/web/mdcuresearchclub-web
-    restart: on-failure
+    networks:
+      - default
+      - main
     secrets:
       - postgres_password
       - drupal_hash_salt
@@ -12,7 +14,6 @@ services:
       - drupal_private_files:/var/www/html/files
   postgres:
     image: postgres
-    restart: on-failure
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
@@ -35,6 +36,6 @@ secrets:
     external: true
 
 networks:
-  default:
+  main:
     external: true
     name: Main_default
