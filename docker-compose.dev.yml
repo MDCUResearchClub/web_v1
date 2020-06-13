@@ -15,7 +15,6 @@ services:
       - ./:/var/www/html:rw
   postgres:
     image: postgres
-    restart: on-failure
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
