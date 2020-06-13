@@ -8,6 +8,8 @@ services:
       - POSTGRES_PASSWORD_FILE=/run/secrets/postgres_password
     secrets:
       - postgres_password
+    volumes:
+      - drupal_files:/var/www/html/web/sites/default/files
   postgres:
     image: postgres
     restart: on-failure
@@ -22,6 +24,7 @@ services:
         constraints: [node.role == manager]
 
 volumes:
+  drupal_files:
   postgres_data:
 
 secrets:
