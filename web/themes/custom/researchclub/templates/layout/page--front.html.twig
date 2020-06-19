@@ -1,0 +1,15 @@
+{% extends 'page.html.twig' %}
+
+{% block content %}
+{{ attach_library('researchclub/front') }}
+<main role="main">
+  <div class="front__intro__container text-center py-48 bg-cover" id="main-content">{# link is in html.html.twig #}
+    <h1 class="text-5xl">df</h1>
+  </div>
+
+  <div class="layout-content">
+  {{ page.content }}
+  </div>{# /.layout-content #}
+
+</main>
+{% endblock %}

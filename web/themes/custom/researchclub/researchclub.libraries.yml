@@ -1,0 +1,14 @@
+global-styling:
+  css:
+    theme:
+      css/index.css: {}
+      css/hamburger.css: {}
+global-scripts:
+  js:
+    node_modules/alpinejs/dist/alpine.js: {
+      attributes: { defer: true }
+    }
+front:
+ css:
+    theme:
+      css/front.css: {}

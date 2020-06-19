@@ -1,0 +1,14 @@
+{
+  "name": "researchclub",
+  "scripts": {
+    "dev": "npm run dev:css",
+    "dev:css": "postcss src/**/*.css --base src --dir css -w",
+    "build": "NODE_ENV=production npm run build:css",
+    "build:css": "postcss src/**/*.css --base src --dir css"
+  },
+  "dependencies": {
+    "alpinejs": "^2.3.5",
+    "postcss-cli": "^7.1.1",
+    "tailwindcss": "^1.4.6"
+  }
+}
