@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   drupal:
-    image: docker.pkg.github.com/mdcuresearchclub/web/mdcuresearchclub-web
+    image: docker.pkg.github.com/mdcuresearchclub/web/mdcuresearchclub-web:dev
     networks:
       - default
       - main
