@@ -1,6 +1,6 @@
-ARG ENV
-
 FROM php:apache AS php-apache
+
+ARG ENV
 
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
