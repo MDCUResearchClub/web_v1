@@ -103,3 +103,4 @@ RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf
 # Copy other required configuration into the container.
 COPY settings.php /var/www/html/web/sites/default/settings.php
 COPY config/ /var/www/html/config/
+COPY php.ini $PHP_INI_DIR/conf.d/
