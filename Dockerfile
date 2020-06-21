@@ -1,5 +1,7 @@
 FROM php:apache AS php-apache
 
+RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+
 # https://github.com/docker-library/drupal/blob/ceed8c29e38959d66e28554ec9aae1cc65a66a9d/8.9/fpm/Dockerfile
 # install the PHP extensions we need
 RUN set -eux; \
