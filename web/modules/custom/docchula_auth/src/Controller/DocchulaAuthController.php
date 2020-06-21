@@ -98,18 +98,18 @@ class DocchulaAuthController extends ControllerBase {
 
     if (user_picture_enabled()) {
       // Mark old picture as Temporary
-      $old_file_id = $user->get('user_picture')->value;
-      if ($old_file_id) {
-        // file_delete($old_file_id);
-        File::load($old_file_id)->setTemporary();
+      $old_file = $user->get('user_picture')->entity; // https://drupal.stackexchange.com/questions/186315/how-to-get-instance-of-referenced-entity
+      if ($old_file) {
+        $old_file->setTemporary();
+        $old_file->save();
       }
 
       $file_directory = $user->getFieldDefinition('user_picture')->getSetting('file_directory');
       $directory = \Drupal::service('token')->replace(dirname($file_directory));
       $filename = \Drupal::service('token')->replace(basename($file_directory));
       $scheme = \Drupal::service('entity_field.manager')->getFieldStorageDefinitions("user")["user_picture"]->getSetting("uri_scheme");
-      $full_directory = $scheme . "://" . $directory;
-      $destination = $full_directory . DIRECTORY_SEPARATOR . "docchula_auth" . DIRECTORY_SEPARATOR . $user->id() . "_". $filename . ".jpg";
+      $full_directory = $scheme . "://" . $directory . DIRECTORY_SEPARATOR . "docchula_auth";
+      $destination = $full_directory . DIRECTORY_SEPARATOR . $user->id() . "_". $filename . ".jpg";
       if (\Drupal::service('file_system')->prepareDirectory($full_directory, FileSystemInterface::CREATE_DIRECTORY)) {
         $file = system_retrieve_file($picture_url, $destination, True, FileSystemInterface::EXISTS_REPLACE);
         $user->set('user_picture', $file->id());
