@@ -71,10 +71,17 @@ RUN composer install \
     --no-dev \
     --prefer-dist
 
+FROM node AS themes
+
+COPY web/ web/
+WORKDIR web/themes
+RUN for d in ./custom/*/ ; do (cd "$d" && npm install && npm run build); done
+
 FROM php-apache
 
 # Copy precompiled codebase into the container.
 COPY --from=vendor /app/ /var/www/html/
+COPY --from=themes ./ /var/www/html/web/themes/
 
 # Make sure file ownership is correct on the document root.
 RUN mkdir /var/www/html/files /var/www/html/web/sites/default/files && \
