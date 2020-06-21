@@ -58,9 +58,12 @@ RUN { \
                 echo 'opcache.fast_shutdown=1'; \
         } > /usr/local/etc/php/conf.d/opcache-recommended.ini
 
+ARG dev=false
+
 # Enable xdebug
-RUN pecl install xdebug \
-    && docker-php-ext-enable xdebug
+RUN if [ "$dev" = "true" ] ; \
+    then pecl install xdebug \
+    && docker-php-ext-enable xdebug; fi
 
 # https://github.com/geerlingguy/drupal-for-kubernetes/blob/b2469d5efaac2381c6ddde1fe5ff2636f9657ab8/Dockerfile
 FROM composer AS vendor
