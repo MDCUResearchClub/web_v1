@@ -1,0 +1,10 @@
+docchula.settings:
+  title: Docchula settings
+  route_name: docchula_auth.settings
+  parent: system.admin_config
+
+docchula_auth.settings_form:
+  title: Docchula Auth settings
+  description: 'View events that have recently been logged.'
+  route_name: docchula_auth.settings_form
+  parent: docchula.settings

@@ -1,0 +1,3 @@
+administer docchula authentication:
+  title: 'Administer Docchula authentication'
+  description: 'Perform administration tasks for Docchula user authentication'

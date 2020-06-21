@@ -1,0 +1,2 @@
+credentials_path: /run/secrets/google_auth
+hosted_domain: docchula.com

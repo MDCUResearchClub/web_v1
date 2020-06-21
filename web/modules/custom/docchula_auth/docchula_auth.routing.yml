@@ -1,0 +1,35 @@
+docchula_auth.settings:
+  path: 'admin/config/docchula'
+  defaults:
+    _title: 'Docchula settings'
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+  requirements:
+    _permission: 'administer site configuration'
+
+docchula_auth.settings_form:
+  path: 'admin/config/docchula/auth'
+  defaults:
+    _title: 'Docchula Auth settings'
+    _form: '\Drupal\docchula_auth\Form\DocchulaAuthSettingsForm'
+  requirements:
+    _permission: 'administer docchula authentication'
+
+docchula_auth.redirect_to_google:
+  path: 'user/login/docchula'
+  defaults:
+    _controller: '\Drupal\docchula_auth\Controller\DocchulaAuthController::redirectToProvider'
+  requirements:
+    # Anonymous users can log in, but authenticated users can also associate a new provider.
+    _access: 'TRUE'
+  options:
+    no_cache: TRUE
+
+docchula_auth.callback:
+  path: 'user/login/docchula/callback'
+  defaults:
+    _controller: '\Drupal\docchula_auth\Controller\DocchulaAuthController::callback'
+  requirements:
+    # Anonymous users can log in, but authenticated users can also associate a new provider.
+    _access: 'TRUE'
+  options:
+    no_cache: TRUE

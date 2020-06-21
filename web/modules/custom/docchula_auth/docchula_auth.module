@@ -1,0 +1,16 @@
+<?php
+
+use Drupal\user\UserInterface;
+use Drupal\file\Entity\File;
+
+/**
+ * Implements hook_ENTITY_TYPE_delete().
+ */
+function docchula_auth_user_delete(UserInterface $user) {
+  if (user_picture_enabled()) {
+    $old_file_id = $user->get('user_picture')->value;
+    if ($old_file_id) {
+      File::load($old_file_id)->setTemporary();
+    }
+  }
+}

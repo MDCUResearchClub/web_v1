@@ -9,6 +9,7 @@ services:
     secrets:
       - postgres_password
       - drupal_hash_salt
+      - google_auth
     volumes:
       - drupal_files:/var/www/html/web/sites/default/files
       - drupal_private_files:/var/www/html/files
@@ -33,6 +34,8 @@ secrets:
   drupal_hash_salt:
     external: true
   postgres_password:
+    external: true
+  google_auth:
     external: true
 
 networks:
