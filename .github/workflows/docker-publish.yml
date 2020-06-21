@@ -44,11 +44,14 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
 
+    env:
+      ENV: prod
+
     steps:
       - uses: actions/checkout@v2
 
       - name: Build image
-        run: docker build . --file Dockerfile --tag $IMAGE_NAME
+        run: docker build . --file Dockerfile --tag $IMAGE_NAME --build-arg ENV=$ENV
 
       - name: Log into registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
@@ -73,8 +76,9 @@ jobs:
           echo VERSION=$VERSION
 
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
-          docker tag $IMAGE_NAME $IMAGE_ID:prod
+          docker tag $IMAGE_NAME $IMAGE_ID:$ENV
           docker push $IMAGE_ID:$VERSION
+          docker push $IMAGE_ID:$ENV
 
   push-dev:
     # Ensure test job passes before pushing image.
@@ -83,11 +87,14 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
 
+    env:
+      ENV: dev
+
     steps:
       - uses: actions/checkout@v2
 
       - name: Build image
-        run: docker build . --file Dockerfile --tag $IMAGE_NAME --build-arg dev=true
+        run: docker build . --file Dockerfile --tag $IMAGE_NAME --build-arg ENV=$ENV
 
       - name: Log into registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
@@ -112,5 +119,6 @@ jobs:
           echo VERSION=$VERSION
 
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
-          docker tag $IMAGE_NAME $IMAGE_ID:dev
+          docker tag $IMAGE_NAME $IMAGE_ID:$ENV
           docker push $IMAGE_ID:$VERSION
+          docker push $IMAGE_ID:$ENV

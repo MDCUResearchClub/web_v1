@@ -1,3 +1,5 @@
+ARG ENV
+
 FROM php:apache AS php-apache
 
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
@@ -58,10 +60,8 @@ RUN { \
                 echo 'opcache.fast_shutdown=1'; \
         } > /usr/local/etc/php/conf.d/opcache-recommended.ini
 
-ARG dev=false
-
 # Enable xdebug
-RUN if [ "$dev" = "true" ] ; \
+RUN if [ "$ENV" = "dev" ] ; \
     then pecl install xdebug \
     && docker-php-ext-enable xdebug; fi
 
