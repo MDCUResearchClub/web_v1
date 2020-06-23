@@ -18,7 +18,7 @@
     <div class="flex items-center">
       {% if site_logo %}
           <a href="{{ path('<front>') }}" rel="home" class="pr-2">
-          <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
+          <img src="{{ site_logo }}" alt="{{ site_name }} {{ 'Logo'|t }}" class="w-8" />
           </a>
       {% endif %}
       {% if site_name %}
