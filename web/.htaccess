@@ -179,4 +179,7 @@ AddEncoding gzip svgz
   Header always set X-Content-Type-Options nosniff
   # Disable Proxy header, since it's an attack vector.
   RequestHeader unset Proxy
+
+  # https://stackoverflow.com/questions/29127144/cant-cache-resource-when-having-both-gzip-and-etag
+  RequestHeader  edit "If-None-Match" "^\"(.*)-gzip\"$" "\"$1\""
 </IfModule>
