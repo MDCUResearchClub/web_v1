@@ -10,6 +10,7 @@ RUN set -eux; \
         \
         if command -v a2enmod; then \
             a2enmod rewrite; \
+            a2enmod headers; \
         fi; \
         \
         savedAptMark="$(apt-mark showmanual)"; \
