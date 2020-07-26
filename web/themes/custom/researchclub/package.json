@@ -7,8 +7,8 @@
     "build:css": "postcss src/**/*.css --base src --dir css"
   },
   "dependencies": {
-    "alpinejs": "^2.3.5",
+    "alpinejs": "^2.5.0",
     "postcss-cli": "^7.1.1",
-    "tailwindcss": "^1.4.6"
+    "tailwindcss": "^1.5.2"
   }
 }
