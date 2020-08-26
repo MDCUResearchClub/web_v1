@@ -3,6 +3,8 @@ type: theme
 description: 'A theme for MDCU Research Club'
 core_version_requirement: ^9
 base theme: stable9
+dependencies:
+  - twig_tweak
 libraries:
   - researchclub/global-styling
   - researchclub/global-scripts

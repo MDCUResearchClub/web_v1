@@ -1,15 +1,64 @@
-{% extends 'page.html.twig' %}
+<div class="layout-container">
 
-{% block content %}
-{{ attach_library('researchclub/front') }}
-<main role="main">
-  <div class="front__intro__container text-center py-48 bg-cover" id="main-content">{# link is in html.html.twig #}
-    <h1 class="text-5xl">df</h1>
-  </div>
+  <header  x-data="{ expand_header: false }" role="banner"
+    @click.away="expand_header = false"
+    class="flex flex-col md:flex-row text-center bg-gray-800
+    text-gray-100 items-stretch md:items-center p-2">
+    {{ page.header }}
 
-  <div class="layout-content">
-  {{ page.content }}
-  </div>{# /.layout-content #}
+    <div id="navbarSupportedContent" class="md:block md:flex md:justify-between flex-1" :class="{'hidden': !expand_header}">
+      <div class="flex-1">{{ page.primary_menu }}</div>
 
-</main>
-{% endblock %}
+      <div>{{ page.secondary_menu }}</div>
+    </div>
+  </header>
+  <main role="main">
+    <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+
+    <section class="bg-gray-300">
+
+      <div class="h-32 overflow-hidden">
+      {{ page.breadcrumb }}
+
+      {{ page.highlighted }}
+
+      {{ page.help }}
+      </div>
+
+      <div class="text-center pb-32">
+        <h1 class="text-5xl font-bold my-2">{{ drupal_token("site:name") }}</h1>
+        <p class="mx-auto md:w-3/4 px-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        {% if logged_in == false %}
+          <a class="inline-block my-4 py-2 px-4 bg-blue-800 text-white rounded-sm"
+          href="{{ path('docchula_auth.redirect_to_google') }}">
+            Join with Docchula
+          </a>
+        {% endif %}
+      </div>
+    </section>
+
+    <div class="layout-content">
+      {{ page.content }}
+    </div>{# /.layout-content #}
+
+    {% if page.sidebar_first %}
+      <aside class="layout-sidebar-first" role="complementary">
+        {{ page.sidebar_first }}
+      </aside>
+    {% endif %}
+
+    {% if page.sidebar_second %}
+      <aside class="layout-sidebar-second" role="complementary">
+        {{ page.sidebar_second }}
+      </aside>
+    {% endif %}
+
+  </main>
+
+  {% if page.footer %}
+    <footer role="contentinfo">
+      {{ page.footer }}
+    </footer>
+  {% endif %}
+
+</div>{# /.layout-container #}

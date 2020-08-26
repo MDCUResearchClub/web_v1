@@ -19,6 +19,8 @@
         "drupal/core-composer-scaffold": "^9",
         "drupal/core-project-message": "^9",
         "drupal/core-recommended": "^9",
+        "drupal/token": "^1.7",
+        "drupal/twig_tweak": "^2.6",
         "drush/drush": "^10.2",
         "google/apiclient": "^2.5"
     },

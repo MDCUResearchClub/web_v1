@@ -1,0 +1,50 @@
+{#
+/**
+ * @file
+ * Theme override for status messages.
+ *
+ * Displays status, error, and warning messages, grouped by type.
+ *
+ * An invisible heading identifies the messages for assistive technology.
+ * Sighted users see a colored box. See http://www.w3.org/TR/WCAG-TECHS/H69.html
+ * for info.
+ *
+ * Add an ARIA label to the contentinfo area so that assistive technology
+ * user agents will better describe this landmark.
+ *
+ * Available variables:
+ * - message_list: List of messages to be displayed, grouped by type.
+ * - status_headings: List of all status types.
+ * - attributes: HTML attributes for the element, including:
+ *   - class: HTML classes.
+ */
+#}
+<div data-drupal-messages class="p-4">
+{% for type, messages in message_list %}
+  <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label') }}
+    class="rounded overflow-hidden shadow-sm p-4 border-l-4 m-2
+    {{ type == 'error' ? 'bg-red-100 border-red-400 text-red-700'}}
+    {{ type == 'warning' ? 'bg-orange-100 border-orange-400 text-orange-700'}}
+    {{ type == 'status' ? 'bg-green-100 border-green-400 text-green-700'}}
+    ">
+    {% if type == 'error' %}
+      <div role="alert">
+    {% endif %}
+    {% if status_headings[type] %}
+      <h2 class="visually-hidden">{{ status_headings[type] }}</h2>
+    {% endif %}
+    {% if messages|length > 1 %}
+      <ul>
+        {% for message in messages %}
+          <li class="my-2">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      {{ messages|first }}
+    {% endif %}
+    {% if type == 'error' %}
+      </div>
+    {% endif %}
+  </div>
+{% endfor %}
+</div>

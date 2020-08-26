@@ -1,0 +1,155 @@
+@font-face {
+  font-family: "Arvo";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: local("Arvo"), url("../fonts/arvo-bolditalic.woff2") format("woff2"),
+    url("../fonts/arvo-bolditalic.woff") format("woff");
+  /* latin */
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Arvo";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Arvo"), url("../fonts/arvo-italic.woff2") format("woff2"),
+    url("../fonts/arvo-italic.woff") format("woff");
+  /* latin */
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Arvo";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Arvo"), url("../fonts/arvo-regular.woff2") format("woff2"),
+    url("../fonts/arvo-regular.woff") format("woff");
+  /* latin */
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Arvo";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local("Arvo"), url("../fonts/arvo-bold.woff2") format("woff2"),
+    url("../fonts/arvo-bold.woff") format("woff");
+  /* latin */
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Cabin";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Cabin"), url("../fonts/cabin-italic.woff2") format("woff2"),
+  url("../fonts/cabin-italic.woff") format("woff");
+  /* latin */
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Cabin";
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: local("Cabin"), url("../fonts/cabin-mediumitalic.woff2") format("woff2"),
+  url("../fonts/cabin-mediumitalic.woff") format("woff");
+  /* latin */
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Cabin";
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: local("Cabin"), url("../fonts/cabin-semibolditalic.woff2") format("woff2"),
+  url("../fonts/cabin-semibolditalic.woff") format("woff");
+  /* latin */
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Cabin";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: local("Cabin"), url("../fonts/cabin-bolditalic.woff2") format("woff2"),
+  url("../fonts/cabin-bolditalic.woff") format("woff");
+  /* latin */
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Cabin";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Cabin"), url("../fonts/cabin-regular.woff2") format("woff2"),
+  url("../fonts/cabin-regular.woff") format("woff");
+  /* latin */
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Cabin";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local("Cabin"), url("../fonts/cabin-medium.woff2") format("woff2"),
+  url("../fonts/cabin-medium.woff") format("woff");
+  /* latin */
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Cabin";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local("Cabin"), url("../fonts/cabin-semibold.woff2") format("woff2"),
+  url("../fonts/cabin-semibold.woff") format("woff");
+  /* latin */
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Cabin";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local("Cabin"), url("../fonts/cabin-bold.woff2") format("woff2"),
+  url("../fonts/cabin-bold.woff") format("woff");
+  /* latin */
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
